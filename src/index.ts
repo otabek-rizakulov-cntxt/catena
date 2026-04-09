@@ -1,5 +1,11 @@
 export { compose, identity, pipe } from './combinators';
 
+export * as Maybe from './core/Maybe';
+export * as Either from './core/Either';
+export * as IO from './core/IO';
+export * as Reader from './core/Reader';
+export * as Async from './core/Async';
+
 export type {
   URItoKind,
   URItoKind2,
