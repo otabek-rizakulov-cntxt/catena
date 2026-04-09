@@ -2,7 +2,7 @@
 
 A strongly-typed functional programming library for TypeScript.
 
-[![CI](https://github.com/otabek-rizakulov-cntxt/petfp/actions/workflows/ci.yml/badge.svg)](https://github.com/<owner>/petfp/actions)
+[![CI](https://github.com/otabek-rizakulov-cntxt/petfp/actions/workflows/ci.yml/badge.svg)](https://github.com/otabek-rizakulov-cntxt/petfp/actions)
 [![npm](https://img.shields.io/npm/v/petfp)](https://www.npmjs.com/package/petfp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
