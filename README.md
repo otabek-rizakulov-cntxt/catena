@@ -1,9 +1,9 @@
-# petfp
+# Catena
 
 A strongly-typed functional programming library for TypeScript.
 
-[![CI](https://github.com/otabek-rizakulov-cntxt/petfp/actions/workflows/ci.yml/badge.svg)](https://github.com/otabek-rizakulov-cntxt/petfp/actions)
-[![npm](https://img.shields.io/npm/v/petfp)](https://www.npmjs.com/package/petfp)
+[![CI](https://github.com/otabek-rizakulov-cntxt/catena/actions/workflows/ci.yml/badge.svg)](https://github.com/otabek-rizakulov-cntxt/catena/actions)
+[![npm](https://img.shields.io/npm/v/catena)](https://www.npmjs.com/package/catena)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## Features
@@ -17,13 +17,13 @@ A strongly-typed functional programming library for TypeScript.
 ## Install
 
 ```bash
-npm install petfp
+npm install catena
 ```
 
 ## Quick start
 
 ```ts
-import { pipe } from 'petfp';
+import { pipe } from 'catena';
 
 const result = pipe(
   5,
