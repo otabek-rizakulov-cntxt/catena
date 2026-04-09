@@ -20,7 +20,10 @@ interface IO<A> {
 // Constructors
 // ---------------------------------------------------------------------------
 
-const of = <A>(a: A): IO<A> => () => a;
+const of =
+  <A>(a: A): IO<A> =>
+  () =>
+    a;
 
 const fromIO = <A>(io: IO<A>): IO<A> => io;
 
@@ -46,7 +49,10 @@ const chain =
   () =>
     f(fa())();
 
-const flatten = <A>(mma: IO<IO<A>>): IO<A> => () => mma()();
+const flatten =
+  <A>(mma: IO<IO<A>>): IO<A> =>
+  () =>
+    mma()();
 
 /** Execute the IO and return its result. */
 const run = <A>(io: IO<A>): A => io();

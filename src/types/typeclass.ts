@@ -49,15 +49,11 @@ export interface Functor2<F extends URIS2> {
 
 export interface Applicative2<F extends URIS2> extends Functor2<F> {
   readonly of: <E = never, A = never>(a: A) => Kind2<F, E, A>;
-  readonly ap: <E, A, B>(
-    fab: Kind2<F, E, (a: A) => B>,
-  ) => (fa: Kind2<F, E, A>) => Kind2<F, E, B>;
+  readonly ap: <E, A, B>(fab: Kind2<F, E, (a: A) => B>) => (fa: Kind2<F, E, A>) => Kind2<F, E, B>;
 }
 
 export interface Monad2<F extends URIS2> extends Applicative2<F> {
-  readonly chain: <E, A, B>(
-    f: (a: A) => Kind2<F, E, B>,
-  ) => (fa: Kind2<F, E, A>) => Kind2<F, E, B>;
+  readonly chain: <E, A, B>(f: (a: A) => Kind2<F, E, B>) => (fa: Kind2<F, E, A>) => Kind2<F, E, B>;
 }
 
 export interface Bifunctor<F extends URIS2> extends Functor2<F> {

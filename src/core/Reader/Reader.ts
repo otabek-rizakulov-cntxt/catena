@@ -26,7 +26,10 @@ const of =
     a;
 
 /** A Reader that returns the environment itself. */
-const ask = <R>(): Reader<R, R> => (r) => r;
+const ask =
+  <R>(): Reader<R, R> =>
+  (r) =>
+    r;
 
 /** A Reader that applies a projection to the environment. */
 const asks = <R, A>(f: (r: R) => A): Reader<R, A> => f;

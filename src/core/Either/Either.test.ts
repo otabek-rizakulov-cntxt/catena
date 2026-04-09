@@ -96,11 +96,21 @@ describe('Either guards', () => {
 
 describe('Either.map', () => {
   it('applies f to Right value', () => {
-    expect(pipe(right(5), map((x) => x * 2))).toEqual(right(10));
+    expect(
+      pipe(
+        right(5),
+        map((x) => x * 2),
+      ),
+    ).toEqual(right(10));
   });
 
   it('passes through Left unchanged', () => {
-    expect(pipe(left('err') as Either<string, number>, map((x) => x * 2))).toEqual(left('err'));
+    expect(
+      pipe(
+        left('err') as Either<string, number>,
+        map((x) => x * 2),
+      ),
+    ).toEqual(left('err'));
   });
 
   it('satisfies identity law', () => {
@@ -112,19 +122,32 @@ describe('Either.map', () => {
     const f = (x: number) => x + 1;
     const g = (x: number) => x * 2;
     const r = right(5);
-    expect(pipe(r, map((x) => f(g(x))))).toEqual(pipe(r, map(g), map(f)));
+    expect(
+      pipe(
+        r,
+        map((x) => f(g(x))),
+      ),
+    ).toEqual(pipe(r, map(g), map(f)));
   });
 });
 
 describe('Either.mapLeft', () => {
   it('applies f to Left value', () => {
-    expect(pipe(left('err'), mapLeft((s) => s.toUpperCase()))).toEqual(left('ERR'));
+    expect(
+      pipe(
+        left('err'),
+        mapLeft((s) => s.toUpperCase()),
+      ),
+    ).toEqual(left('ERR'));
   });
 
   it('passes through Right unchanged', () => {
-    expect(pipe(right(42) as Either<string, number>, mapLeft((s) => s.toUpperCase()))).toEqual(
-      right(42),
-    );
+    expect(
+      pipe(
+        right(42) as Either<string, number>,
+        mapLeft((s) => s.toUpperCase()),
+      ),
+    ).toEqual(right(42));
   });
 });
 
@@ -179,9 +202,9 @@ describe('Either.ap', () => {
   });
 
   it('returns Left when value is Left', () => {
-    expect(
-      pipe(left('err') as Either<string, number>, ap(right((x: number) => x + 1))),
-    ).toEqual(left('err'));
+    expect(pipe(left('err') as Either<string, number>, ap(right((x: number) => x + 1)))).toEqual(
+      left('err'),
+    );
   });
 });
 
@@ -190,8 +213,10 @@ describe('Either.ap', () => {
 // ---------------------------------------------------------------------------
 
 describe('Either.chain', () => {
-  const safeDivide = (b: number) => (a: number): Either<string, number> =>
-    b === 0 ? left('division by zero') : right(a / b);
+  const safeDivide =
+    (b: number) =>
+    (a: number): Either<string, number> =>
+      b === 0 ? left('division by zero') : right(a / b);
 
   it('chains Right values', () => {
     expect(pipe(right(10), chain(safeDivide(2)))).toEqual(right(5));
@@ -248,17 +273,32 @@ describe('Either.fold', () => {
 
 describe('Either.getOrElse', () => {
   it('returns Right value', () => {
-    expect(pipe(right(42) as Either<string, number>, getOrElse(() => 0))).toBe(42);
+    expect(
+      pipe(
+        right(42) as Either<string, number>,
+        getOrElse(() => 0),
+      ),
+    ).toBe(42);
   });
 
   it('returns fallback for Left', () => {
-    expect(pipe(left('err') as Either<string, number>, getOrElse(() => 0))).toBe(0);
+    expect(
+      pipe(
+        left('err') as Either<string, number>,
+        getOrElse(() => 0),
+      ),
+    ).toBe(0);
   });
 });
 
 describe('Either.reduce', () => {
   it('applies reducer for Right', () => {
-    expect(pipe(right(5), reduce((acc: number, x) => acc + x, 10))).toBe(15);
+    expect(
+      pipe(
+        right(5),
+        reduce((acc: number, x) => acc + x, 10),
+      ),
+    ).toBe(15);
   });
 
   it('returns seed for Left', () => {

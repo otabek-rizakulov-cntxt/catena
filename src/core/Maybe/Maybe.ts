@@ -38,7 +38,8 @@ const fromNullable = <A>(value: A | null | undefined): Maybe<NonNullable<A>> =>
 const fromPredicate: {
   <A, B extends A>(refinement: Refinement<A, B>): (a: A) => Maybe<B>;
   <A>(predicate: Predicate<A>): (a: A) => Maybe<A>;
-} = <A>(predicate: Predicate<A>) =>
+} =
+  <A>(predicate: Predicate<A>) =>
   (a: A): Maybe<A> =>
     predicate(a) ? just(a) : nothing;
 

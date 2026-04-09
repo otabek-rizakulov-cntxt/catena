@@ -23,7 +23,9 @@ interface Async<E, A> {
   (): Promise<Either<E, A>>;
 }
 
-type Either<E, A> = { readonly _tag: 'Left'; readonly value: E } | { readonly _tag: 'Right'; readonly value: A };
+type Either<E, A> =
+  | { readonly _tag: 'Left'; readonly value: E }
+  | { readonly _tag: 'Right'; readonly value: A };
 
 const _left = <E>(e: E): Either<E, never> => ({ _tag: 'Left', value: e });
 const _right = <A>(a: A): Either<never, A> => ({ _tag: 'Right', value: a });
@@ -34,9 +36,15 @@ const _isRight = <E, A>(ea: Either<E, A>): ea is Extract<Either<E, A>, { _tag: '
 // Constructors
 // ---------------------------------------------------------------------------
 
-const succeed = <A, E = never>(a: A): Async<E, A> => () => Promise.resolve(_right(a));
+const succeed =
+  <A, E = never>(a: A): Async<E, A> =>
+  () =>
+    Promise.resolve(_right(a));
 
-const fail = <E, A = never>(e: E): Async<E, A> => () => Promise.resolve(_left(e));
+const fail =
+  <E, A = never>(e: E): Async<E, A> =>
+  () =>
+    Promise.resolve(_left(e));
 
 const of = succeed;
 
@@ -91,9 +99,7 @@ const fold =
   <E, A, B>(onFailure: (e: E) => B, onSuccess: (a: A) => B) =>
   (fa: Async<E, A>): Async<never, B> =>
   () =>
-    fa().then((ea) =>
-      _isRight(ea) ? _right(onSuccess(ea.value)) : _right(onFailure(ea.value)),
-    );
+    fa().then((ea) => (_isRight(ea) ? _right(onSuccess(ea.value)) : _right(onFailure(ea.value))));
 
 /** Execute the Async and return a Promise of the internal Either. */
 const run = <E, A>(fa: Async<E, A>): Promise<Either<E, A>> => fa();

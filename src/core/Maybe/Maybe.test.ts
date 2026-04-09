@@ -62,9 +62,7 @@ describe('Maybe constructors', () => {
   });
 
   it('fromPredicate narrows types with a refinement', () => {
-    const isString = fromPredicate(
-      (x: string | number): x is string => typeof x === 'string',
-    );
+    const isString = fromPredicate((x: string | number): x is string => typeof x === 'string');
     const result = isString('hello');
     expectTypeOf(result).toEqualTypeOf<Maybe<string>>();
   });
@@ -98,11 +96,21 @@ describe('Maybe guards', () => {
 
 describe('Maybe.map', () => {
   it('applies f to Just value', () => {
-    expect(pipe(just(5), map((x) => x * 2))).toEqual(just(10));
+    expect(
+      pipe(
+        just(5),
+        map((x) => x * 2),
+      ),
+    ).toEqual(just(10));
   });
 
   it('returns Nothing unchanged', () => {
-    expect(pipe(nothing, map((x: number) => x * 2))).toEqual(nothing);
+    expect(
+      pipe(
+        nothing,
+        map((x: number) => x * 2),
+      ),
+    ).toEqual(nothing);
   });
 
   it('satisfies identity law: map(id) === id', () => {
@@ -114,7 +122,12 @@ describe('Maybe.map', () => {
     const f = (x: number) => x + 1;
     const g = (x: number) => x * 2;
     const j = just(5);
-    expect(pipe(j, map((x) => f(g(x))))).toEqual(pipe(j, map(g), map(f)));
+    expect(
+      pipe(
+        j,
+        map((x) => f(g(x))),
+      ),
+    ).toEqual(pipe(j, map(g), map(f)));
   });
 });
 
@@ -152,7 +165,12 @@ describe('Maybe.chain', () => {
   });
 
   it('chains to Nothing', () => {
-    expect(pipe(just(-1), chain((x: number) => (x >= 0 ? just(x) : nothing)))).toEqual(nothing);
+    expect(
+      pipe(
+        just(-1),
+        chain((x: number) => (x >= 0 ? just(x) : nothing)),
+      ),
+    ).toEqual(nothing);
   });
 
   it('satisfies left identity: chain(f)(of(a)) === f(a)', () => {
@@ -172,11 +190,21 @@ describe('Maybe.chain', () => {
 
 describe('Maybe.alt', () => {
   it('returns first when it is Just', () => {
-    expect(pipe(just(1), alt(() => just(2)))).toEqual(just(1));
+    expect(
+      pipe(
+        just(1),
+        alt(() => just(2)),
+      ),
+    ).toEqual(just(1));
   });
 
   it('returns second when first is Nothing', () => {
-    expect(pipe(nothing, alt(() => just(2)))).toEqual(just(2));
+    expect(
+      pipe(
+        nothing,
+        alt(() => just(2)),
+      ),
+    ).toEqual(just(2));
   });
 });
 
@@ -212,21 +240,41 @@ describe('Maybe.fold', () => {
 
 describe('Maybe.getOrElse', () => {
   it('returns the value for Just', () => {
-    expect(pipe(just(42), getOrElse(() => 0))).toBe(42);
+    expect(
+      pipe(
+        just(42),
+        getOrElse(() => 0),
+      ),
+    ).toBe(42);
   });
 
   it('returns fallback for Nothing', () => {
-    expect(pipe(nothing as Maybe<number>, getOrElse(() => 0))).toBe(0);
+    expect(
+      pipe(
+        nothing as Maybe<number>,
+        getOrElse(() => 0),
+      ),
+    ).toBe(0);
   });
 });
 
 describe('Maybe.reduce', () => {
   it('applies reducer for Just', () => {
-    expect(pipe(just(5), reduce((acc: number, x) => acc + x, 10))).toBe(15);
+    expect(
+      pipe(
+        just(5),
+        reduce((acc: number, x) => acc + x, 10),
+      ),
+    ).toBe(15);
   });
 
   it('returns seed for Nothing', () => {
-    expect(pipe(nothing as Maybe<number>, reduce((acc: number, x) => acc + x, 10))).toBe(10);
+    expect(
+      pipe(
+        nothing as Maybe<number>,
+        reduce((acc: number, x) => acc + x, 10),
+      ),
+    ).toBe(10);
   });
 });
 

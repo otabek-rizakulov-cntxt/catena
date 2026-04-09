@@ -25,7 +25,12 @@ describe('Reader constructors', () => {
   });
 
   it('asks applies a projection to the environment', () => {
-    expect(pipe(asks<Env, number>((e) => e.multiplier), run(env))).toBe(3);
+    expect(
+      pipe(
+        asks<Env, number>((e) => e.multiplier),
+        run(env),
+      ),
+    ).toBe(3);
   });
 });
 
@@ -36,7 +41,13 @@ describe('Reader constructors', () => {
 describe('Reader.map', () => {
   it('transforms the result', () => {
     const reader = asks<Env, number>((e) => e.multiplier);
-    expect(pipe(reader, map((x) => x * 10), run(env))).toBe(30);
+    expect(
+      pipe(
+        reader,
+        map((x) => x * 10),
+        run(env),
+      ),
+    ).toBe(30);
   });
 
   it('satisfies identity law', () => {
@@ -48,9 +59,13 @@ describe('Reader.map', () => {
     const f = (x: number) => x + 1;
     const g = (x: number) => x * 2;
     const reader = of<Env, number>(5);
-    expect(pipe(reader, map((x) => f(g(x))), run(env))).toBe(
-      pipe(reader, map(g), map(f), run(env)),
-    );
+    expect(
+      pipe(
+        reader,
+        map((x) => f(g(x))),
+        run(env),
+      ),
+    ).toBe(pipe(reader, map(g), map(f), run(env)));
   });
 });
 

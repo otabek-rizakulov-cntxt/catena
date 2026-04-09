@@ -76,12 +76,22 @@ describe('Async constructors', () => {
 
 describe('Async.map', () => {
   it('transforms a successful value', async () => {
-    const result = await unwrap(pipe(succeed(5), map((x) => x * 2)));
+    const result = await unwrap(
+      pipe(
+        succeed(5),
+        map((x) => x * 2),
+      ),
+    );
     expect(result).toEqual({ _tag: 'Right', value: 10 });
   });
 
   it('passes through failure', async () => {
-    const result = await unwrap(pipe(fail('err') as Async<string, number>, map((x) => x * 2)));
+    const result = await unwrap(
+      pipe(
+        fail('err') as Async<string, number>,
+        map((x) => x * 2),
+      ),
+    );
     expect(result).toEqual({ _tag: 'Left', value: 'err' });
   });
 
@@ -96,7 +106,12 @@ describe('Async.map', () => {
     const f = (x: number) => x + 1;
     const g = (x: number) => x * 2;
     const fa = succeed(5);
-    const a = await unwrap(pipe(fa, map((x) => f(g(x)))));
+    const a = await unwrap(
+      pipe(
+        fa,
+        map((x) => f(g(x))),
+      ),
+    );
     const b = await unwrap(pipe(fa, map(g), map(f)));
     expect(a).toEqual(b);
   });

@@ -26,7 +26,14 @@ describe('IO constructors', () => {
 describe('IO.map', () => {
   it('transforms the result', () => {
     const io = of(5);
-    expect(run(pipe(io, map((x) => x * 2)))).toBe(10);
+    expect(
+      run(
+        pipe(
+          io,
+          map((x) => x * 2),
+        ),
+      ),
+    ).toBe(10);
   });
 
   it('satisfies identity law', () => {
@@ -38,7 +45,14 @@ describe('IO.map', () => {
     const f = (x: number) => x + 1;
     const g = (x: number) => x * 2;
     const io = of(5);
-    expect(run(pipe(io, map((x) => f(g(x)))))).toBe(run(pipe(io, map(g), map(f))));
+    expect(
+      run(
+        pipe(
+          io,
+          map((x) => f(g(x))),
+        ),
+      ),
+    ).toBe(run(pipe(io, map(g), map(f))));
   });
 });
 
