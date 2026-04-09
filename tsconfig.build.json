@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "declaration": true,
+    "declarationMap": false,
+    "sourceMap": false
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.bench.ts",
+    "tests",
+    "benchmarks"
+  ]
+}

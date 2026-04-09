@@ -1,0 +1,26 @@
+export { compose, identity, pipe } from './combinators';
+
+export type {
+  URItoKind,
+  URItoKind2,
+  URIS,
+  URIS2,
+  Kind,
+  Kind2,
+  Functor,
+  Apply,
+  Applicative,
+  Chain,
+  Monad,
+  Foldable,
+  Alt,
+  Functor2,
+  Applicative2,
+  Monad2,
+  Bifunctor,
+  Lazy,
+  Predicate,
+  Refinement,
+  Endomorphism,
+  FunctionN,
+} from './types';
