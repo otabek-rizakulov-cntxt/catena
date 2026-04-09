@@ -11,7 +11,7 @@ A strongly-typed functional programming library for TypeScript.
 - Algebraic data types: `Maybe`, `Either`, `IO`, `Reader`, `Async`
 - Typeclass hierarchy: `Functor`, `Applicative`, `Monad`, and more
 - Type-safe `pipe` and `compose` with full inference
-- Tree-shakeable ESM + CJS dual output
+- Tree-shakeable ESM + CJS dual output — **12 KB** ESM / **3.1 KB** gzipped
 - Zero dependencies
 
 ## Install
@@ -89,7 +89,7 @@ pipe(
 | ✅ | Algebra & Helpers | Semigroup, Monoid, curry, predicates, helpers |
 | ✅ | Testing | Property-based tests, law verification (303 tests) |
 | ✅ | Docs | TSDoc on all exports, TypeDoc, guides & examples |
-| 📋 | Optimize | Bundle size, tree-shaking, benchmarks |
+| ✅ | Optimize | Benchmarks, bundle analysis (3.1 KB gzip), tree-shaking validated |
 | 📋 | Release | Versioning, migration guide, npm publish |
 | 📋 | Community | Contributor guidelines, good first issues |
 

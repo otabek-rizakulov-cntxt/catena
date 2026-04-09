@@ -2,6 +2,7 @@ node_modules/
 dist/
 coverage/
 docs/api/
+.treeshake-test/
 *.tsbuildinfo
 .DS_Store
 *.log

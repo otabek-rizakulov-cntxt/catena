@@ -34,6 +34,8 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.ts\"",
     "bench": "vitest bench",
+    "bundle-size": "npm run build && tsx scripts/bundle-size.ts",
+    "check-treeshake": "tsx scripts/check-treeshake.ts",
     "docs": "typedoc",
     "prepublishOnly": "npm run build"
   },
@@ -66,6 +68,7 @@
     "fast-check": "^4.6.0",
     "prettier": "^3.8.1",
     "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
     "typedoc": "^0.28.18",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.58.1",
