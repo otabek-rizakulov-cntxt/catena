@@ -40,8 +40,8 @@ const result = pipe(
 | ✅ | Foundation | TypeScript setup, CI, HKT encoding |
 | ✅ | Core Types | HKT, typeclasses, pipe, compose, identity |
 | ✅ | Core ADTs | Maybe, Either, IO, Reader, Async |
-| 🚧 | Algebra & Helpers | Semigroup, Monoid, curry, predicates, helpers |
-| 📋 | Testing | Property-based tests, law verification |
+| ✅ | Algebra & Helpers | Semigroup, Monoid, curry, predicates, helpers |
+| ✅ | Testing | Property-based tests, law verification (303 tests) |
 | 📋 | Docs | API docs, guides, examples |
 | 📋 | Optimize | Bundle size, tree-shaking, benchmarks |
 | 📋 | Release | Versioning, migration guide, npm publish |
