@@ -3,10 +3,29 @@
 /**
  * Pipes a value through a sequence of functions left-to-right.
  *
+ * This is the primary composition tool in catena. Pass an initial value
+ * followed by up to 9 unary functions — each receives the output of the
+ * previous one. All types are inferred automatically.
+ *
+ * @param a - The initial value
+ * @returns The result of threading `a` through every function
+ *
  * @example
  * ```ts
+ * import { pipe, Maybe } from 'catena';
+ *
+ * // Simple value transformation
  * pipe(5, x => x + 1, x => x * 2); // 12
+ *
+ * // Composing ADT operations
+ * pipe(
+ *   Maybe.fromNullable(user.name),
+ *   Maybe.map(s => s.trim()),
+ *   Maybe.getOrElse(() => 'Anonymous'),
+ * );
  * ```
+ *
+ * @since 0.1.0
  */
 export function pipe<A>(a: A): A;
 export function pipe<A, B>(a: A, ab: (a: A) => B): B;

@@ -3,6 +3,8 @@
  *
  * Each interface is parameterized by a URI that maps to a concrete
  * type constructor via the HKT encoding in {@link ./hkt}.
+ *
+ * @since 0.1.0
  */
 
 import type { Kind, Kind2, URIS, URIS2 } from './hkt';
