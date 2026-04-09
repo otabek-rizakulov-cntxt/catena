@@ -91,13 +91,20 @@ pipe(
 | ✅ | Docs | TSDoc on all exports, TypeDoc, guides & examples |
 | ✅ | Optimize | Benchmarks, bundle analysis (3.1 KB gzip), tree-shaking validated |
 | ✅ | Release | v0.1.0-beta.1, changelog, migration guide, publish workflow |
-| 📋 | Community | Contributor guidelines, good first issues |
+| ✅ | Community | Contributing guide, code of conduct, architecture docs, label config |
 
-Legend: ✅ Done · 🚧 In Progress · 📋 Planned
+All phases complete — catena is ready for contributors and users!
 
 ## Contributing
 
-See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for setup instructions and guidelines.
+We welcome contributions of all kinds. Check out these resources:
+
+- [CONTRIBUTING.md](.github/CONTRIBUTING.md) — setup, workflow, code style
+- [ARCHITECTURE.md](ARCHITECTURE.md) — codebase structure and design decisions
+- [Code of Conduct](.github/CODE_OF_CONDUCT.md) — community standards
+- [Migration Guide](MIGRATION.md) — coming from crocks, fp-ts, or sanctuary
+
+Look for issues labeled **`good first issue`** to get started.
 
 ## License
 

@@ -1,0 +1,74 @@
+# Issue & PR labels — apply with: gh label create <name> --color <hex> --description <desc>
+# Or use a label sync tool like github-label-sync
+
+- name: "good first issue"
+  color: "7057ff"
+  description: "Small, well-scoped tasks ideal for newcomers"
+
+- name: "help wanted"
+  color: "008672"
+  description: "Larger tasks where maintainer guidance is available"
+
+- name: "type:bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "type:feature"
+  color: "a2eeef"
+  description: "New functionality or enhancement"
+
+- name: "type:docs"
+  color: "0075ca"
+  description: "Documentation improvements"
+
+- name: "type:test"
+  color: "fbca04"
+  description: "Test coverage or testing infrastructure"
+
+- name: "type:perf"
+  color: "e4e669"
+  description: "Performance improvements"
+
+- name: "type:refactor"
+  color: "d4c5f9"
+  description: "Code restructuring without behavior change"
+
+- name: "type:chore"
+  color: "ededed"
+  description: "Build, CI, dependencies, or tooling"
+
+- name: "priority:high"
+  color: "b60205"
+  description: "Needs attention soon"
+
+- name: "priority:low"
+  color: "c5def5"
+  description: "Nice to have, no rush"
+
+- name: "module:Maybe"
+  color: "bfd4f2"
+  description: "Related to the Maybe ADT"
+
+- name: "module:Either"
+  color: "bfd4f2"
+  description: "Related to the Either ADT"
+
+- name: "module:IO"
+  color: "bfd4f2"
+  description: "Related to the IO ADT"
+
+- name: "module:Reader"
+  color: "bfd4f2"
+  description: "Related to the Reader ADT"
+
+- name: "module:Async"
+  color: "bfd4f2"
+  description: "Related to the Async ADT"
+
+- name: "module:algebraic"
+  color: "bfd4f2"
+  description: "Semigroup, Monoid, Setoid, Ord"
+
+- name: "module:combinators"
+  color: "bfd4f2"
+  description: "pipe, compose, curry, flip, etc."
