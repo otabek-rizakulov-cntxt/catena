@@ -90,7 +90,7 @@ pipe(
 | ✅ | Testing | Property-based tests, law verification (303 tests) |
 | ✅ | Docs | TSDoc on all exports, TypeDoc, guides & examples |
 | ✅ | Optimize | Benchmarks, bundle analysis (3.1 KB gzip), tree-shaking validated |
-| 📋 | Release | Versioning, migration guide, npm publish |
+| ✅ | Release | v0.1.0-beta.1, changelog, migration guide, publish workflow |
 | 📋 | Community | Contributor guidelines, good first issues |
 
 Legend: ✅ Done · 🚧 In Progress · 📋 Planned
