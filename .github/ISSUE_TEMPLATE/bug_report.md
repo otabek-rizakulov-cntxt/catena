@@ -20,6 +20,6 @@ labels: type:bug
 
 ## Environment
 
-- petfp version:
+- catena version:
 - TypeScript version:
 - Node version:

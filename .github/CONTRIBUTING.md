@@ -1,4 +1,4 @@
-# Contributing to petfp
+# Contributing to catena
 
 Thanks for your interest in contributing! This guide will get you up and running.
 
@@ -6,7 +6,7 @@ Thanks for your interest in contributing! This guide will get you up and running
 
 ```bash
 git clone <repo-url>
-cd pet
+cd catena
 npm install
 ```
 

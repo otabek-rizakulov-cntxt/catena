@@ -21,7 +21,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@petfp': './src',
+      '@catena': './src',
     },
   },
 });

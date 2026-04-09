@@ -1,8 +1,8 @@
-# Catena
+# catena
 
 A strongly-typed functional programming library for TypeScript.
 
-[![CI](https://github.com/otabek-rizakulov-cntxt/catena/actions/workflows/ci.yml/badge.svg)](https://github.com/otabek-rizakulov-cntxt/catena/actions)
+[![CI](https://github.com/<owner>/catena/actions/workflows/ci.yml/badge.svg)](https://github.com/<owner>/catena/actions)
 [![npm](https://img.shields.io/npm/v/catena)](https://www.npmjs.com/package/catena)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
