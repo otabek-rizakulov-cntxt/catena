@@ -38,12 +38,14 @@ const result = pipe(
 | Status | Phase | Description |
 |--------|-------|-------------|
 | ✅ | Foundation | TypeScript setup, CI, HKT encoding |
-| 📋 | Core ADTs | Maybe, Either, IO, Reader, Async |
-| 📋 | Algebra | Semigroup, Monoid, Traversable |
+| ✅ | Core Types | HKT, typeclasses, pipe, compose, identity |
+| ✅ | Core ADTs | Maybe, Either, IO, Reader, Async |
+| 🚧 | Algebra & Helpers | Semigroup, Monoid, curry, predicates, helpers |
 | 📋 | Testing | Property-based tests, law verification |
 | 📋 | Docs | API docs, guides, examples |
 | 📋 | Optimize | Bundle size, tree-shaking, benchmarks |
-| 📋 | v1.0 | Stable release |
+| 📋 | Release | Versioning, migration guide, npm publish |
+| 📋 | Community | Contributor guidelines, good first issues |
 
 Legend: ✅ Done · 🚧 In Progress · 📋 Planned
 
