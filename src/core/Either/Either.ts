@@ -38,7 +38,7 @@ const of = right;
 const fromNullable =
   <E>(onNullable: Lazy<E>) =>
   <A>(value: A | null | undefined): Either<E, NonNullable<A>> =>
-    value == null ? left(onNullable()) : right(value as NonNullable<A>);
+    value == null ? left(onNullable()) : right(value);
 
 const tryCatch = <E, A>(f: Lazy<A>, onError: (error: unknown) => E): Either<E, A> => {
   try {

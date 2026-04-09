@@ -63,13 +63,13 @@ const mapError =
   <E, G>(f: (e: E) => G) =>
   <A>(fa: Async<E, A>): Async<G, A> =>
   () =>
-    fa().then((ea) => (_isRight(ea) ? ea : _left(f(ea.value as E))));
+    fa().then((ea): Either<G, A> => (_isRight(ea) ? ea : _left(f(ea.value))));
 
 const bimap =
   <E, G, A, B>(f: (e: E) => G, g: (a: A) => B) =>
   (fa: Async<E, A>): Async<G, B> =>
   () =>
-    fa().then((ea) => (_isRight(ea) ? _right(g(ea.value)) : _left(f(ea.value as E))));
+    fa().then((ea) => (_isRight(ea) ? _right(g(ea.value)) : _left(f(ea.value))));
 
 const ap =
   <E, A, B>(fab: Async<E, (a: A) => B>) =>
@@ -92,7 +92,7 @@ const fold =
   (fa: Async<E, A>): Async<never, B> =>
   () =>
     fa().then((ea) =>
-      _isRight(ea) ? _right(onSuccess(ea.value)) : _right(onFailure(ea.value as E)),
+      _isRight(ea) ? _right(onSuccess(ea.value)) : _right(onFailure(ea.value)),
     );
 
 /** Execute the Async and return a Promise of the internal Either. */
@@ -102,6 +102,7 @@ const run = <E, A>(fa: Async<E, A>): Promise<Either<E, A>> => fa();
 const runPromise = <E, A>(fa: Async<E, A>): Promise<A> =>
   fa().then((ea) => {
     if (_isRight(ea)) return ea.value;
+    // eslint-disable-next-line @typescript-eslint/only-throw-error -- intentional: E is the user-defined error channel, not necessarily an Error instance
     throw ea.value;
   });
 

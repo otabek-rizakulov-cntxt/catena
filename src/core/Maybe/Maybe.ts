@@ -33,7 +33,7 @@ const just = <A>(value: A): Maybe<A> => ({ _tag: 'Just', value });
 const nothing: Maybe<never> = { _tag: 'Nothing' };
 
 const fromNullable = <A>(value: A | null | undefined): Maybe<NonNullable<A>> =>
-  value == null ? nothing : just(value as NonNullable<A>);
+  value == null ? nothing : just(value);
 
 const fromPredicate: {
   <A, B extends A>(refinement: Refinement<A, B>): (a: A) => Maybe<B>;

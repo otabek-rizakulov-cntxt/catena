@@ -15,12 +15,10 @@
  * ```
  */
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface URItoKind<A> {
   readonly __phantom?: A;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface URItoKind2<E, A> {
   readonly __phantom?: [E, A];
 }

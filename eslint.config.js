@@ -7,7 +7,7 @@ export default tseslint.config(
   {
     languageOptions: {
       parserOptions: {
-        projectService: true,
+        project: 'tsconfig.eslint.json',
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -24,6 +24,15 @@ export default tseslint.config(
       '@typescript-eslint/prefer-readonly': 'error',
       'no-console': 'warn',
       'prefer-const': 'error',
+    },
+  },
+  {
+    files: ['**/*.test.ts'],
+    rules: {
+      '@typescript-eslint/no-unnecessary-type-assertion': 'off',
+      '@typescript-eslint/restrict-template-expressions': 'off',
+      '@typescript-eslint/no-confusing-void-expression': 'off',
+      '@typescript-eslint/prefer-promise-reject-errors': 'off',
     },
   },
   {
